@@ -5,7 +5,7 @@ const INDOSEC_ID = "6289502797112-1624865381@g.us";
 venom
   .create({
     session: "WAFansa",
-    multidevice: true,
+    multidevice: false,
   })
   .then((client) => start(client));
 
@@ -62,42 +62,20 @@ const start = (client) => {
   });
 };
 
-const questions = (msgBody) => {
-  if (/kenapa|ask|nanya|tolong|knp|knpa|kok/.test(msgBody)) return true;
-  return false;
-};
+const questions = (msgBody) =>
+  /kenapa|ask|nanya|tolong|knp|knpa|kok/.test(msgBody);
 
-const called = (msgBody) => {
-  if (/bang|bg|woi|om|gan/.test(msgBody)) return true;
-  return false;
-};
+const called = (msgBody) => /bang|bg|woi|om|gan/.test(msgBody);
 
-const names = (msgBody) => {
-  if (/stipen|api|binsar/.test(msgBody)) return true;
-  return false;
-};
+const names = (msgBody) => /stipen|api|binsar/.test(msgBody);
 
-const thanks = (msgBody) => {
-  if (/makasih|terimakasih|terima kasih/.test(msgBody)) return true;
-  return false;
-};
+const thanks = (msgBody) => /makasih|terimakasih|terima kasih/.test(msgBody);
 
-const badwords = (msgBody) => {
-  if (/pler|peler|kontol|kntl|kntol|setres|stres/.test(msgBody)) return true;
-  return false;
-};
+const badwords = (msgBody) =>
+  /pler|peler|kontol|kntl|kntol|setres|stres/.test(msgBody);
 
-const satirs = (msgBody) => {
-  if (/konsol/.test(msgBody)) return true;
-  return false;
-};
+const satirs = (msgBody) => /konsol/.test(msgBody);
 
-const reject = (msgBody) => {
-  if (/gk|gak|gx|gax/.test(msgBody)) return true;
-  return false;
-};
+const reject = (msgBody) => /gk|gak|gx|gax/.test(msgBody);
 
-const not = (msgBody) => {
-  if (/apa|ap|pa|opo/.test(msgBody)) return true;
-  return false;
-};
+const not = (msgBody) => /apa|ap|pa|opo/.test(msgBody);
